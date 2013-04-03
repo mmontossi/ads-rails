@@ -15,4 +15,6 @@ Then bundle:
 = Usage
   
 In your layout add a line like this in your head:
-  = google_adsense_include_tag :client => 'client', :slot => 'slot', :width => 'width', :height => 'height' 
+  = google_adsense_include_tag :client => 'client', :slot => 'slot', :width => 'width', :height => 'height'
+
+(Will only show the include tag in production env)
