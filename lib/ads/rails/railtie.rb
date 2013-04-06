@@ -2,8 +2,8 @@ module Ads
   module Rails
     class Railtie < ::Rails::Railtie
 
-      initializer 'ads.helpers' do
-        ActionView::Base.send :include, Ads::Rails::Helpers
+      initializer 'ads.rails' do
+        ::ActionView::Base.send :include, Ads::Rails::ActionView::Base
       end
 
     end
