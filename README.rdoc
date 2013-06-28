@@ -1,6 +1,6 @@
 {<img src="https://codeclimate.com/github/mattways/ads-rails.png" />}[https://codeclimate.com/github/mattways/ads-rails] {<img src="https://travis-ci.org/mattways/ads-rails.png?branch=master" alt="Build Status" />}[https://travis-ci.org/mattways/ads-rails] {<img src="https://gemnasium.com/mattways/ads-rails.png" alt="Dependency Status" />}[https://gemnasium.com/mattways/ads-rails]
 
-= Fonts Rails
+= Ads Rails
 
 Adds a simple helper to create the google adsense include tag.
 
@@ -14,7 +14,7 @@ Then bundle:
 
 = Usage
   
-In your layout add a line like this in your head:
+In your view add a line like this wherever you like:
   = google_adsense_include_tag :client => 'client', :slot => 'slot', :width => 'width', :height => 'height'
 
 (Will only show the include tag in production env)
