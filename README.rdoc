@@ -15,6 +15,6 @@ Then bundle:
 = Usage
   
 In your view add a line like this wherever you like:
-  = google_adsense_include_tag :client => 'client', :slot => 'slot', :width => 'width', :height => 'height'
+  <%= google_adsense_include_tag client: 'client', slot: 'slot', width: 'width', height: 'height' %>
 
-(Will only show the include tag in production env)
+(Will only show the include tag in production and test env)

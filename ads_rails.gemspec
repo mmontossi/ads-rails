@@ -12,16 +12,12 @@ Gem::Specification.new do |s|
   s.homepage    = 'https://github.com/mattways/ads-rails'
   s.summary     = 'Google Adsense for Rails.'
   s.description = 'Adds a simple view helper to create the google adsense include tag.'
+  s.license     = 'MIT'
 
   s.files = Dir["{app,config,db,lib}/**/*"] + ['MIT-LICENSE', 'Rakefile', 'README.rdoc']
   s.test_files = Dir['test/**/*']
 
-  s.add_dependency 'rails', '~> 3.2.8'
+  s.add_dependency 'rails', (ENV['RAILS_VERSION'] ? "~> #{ENV['RAILS_VERSION']}" : '>= 3.0.0')
 
-  if RUBY_PLATFORM == 'java'
-    s.add_development_dependency 'activerecord-jdbcsqlite3-adapter'
-    s.add_development_dependency 'jruby-openssl'
-  else
-    s.add_development_dependency 'sqlite3'
-  end
+  s.add_development_dependency 'sqlite3'
 end

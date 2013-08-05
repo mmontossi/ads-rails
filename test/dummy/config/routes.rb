@@ -1,6 +1,6 @@
 Dummy::Application.routes.draw do
 
-  root :to => 'statics#home'
+  root :to => 'pages#index'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
