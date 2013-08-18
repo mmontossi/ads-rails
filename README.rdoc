@@ -1,3 +1,25 @@
-= AdsRails
+{<img src="https://codeclimate.com/github/mattways/ads-rails.png" />}[https://codeclimate.com/github/mattways/ads-rails] {<img src="https://travis-ci.org/mattways/ads-rails.png?branch=master" alt="Build Status" />}[https://travis-ci.org/mattways/ads-rails] {<img src="https://gemnasium.com/mattways/ads-rails.png" alt="Dependency Status" />}[https://gemnasium.com/mattways/ads-rails]
 
-This project rocks and uses MIT-LICENSE.
+= Ads Rails
+
+Adds a simple helper to create the google adsense include tag.
+
+= Install
+
+Put this line in your Gemfile:
+  gem 'ads-rails'
+  
+Then bundle:
+  $ bundle
+
+= Usage
+  
+In your view add a line like this wherever you like:
+  <%= google_adsense_include_tag client: 'client', slot: 'slot', width: 'width', height: 'height' %>
+
+(Will only show the include tag in production and test env)
+
+= Configuration
+
+If you want to renderer different the placeholder, put something like this in your application.rb:
+  config.ads.renderer = proc { |options| tag(:img, src: "http://placehold.it/#{options[:width]}x#{options[:height]}&text=Google+AdSense") }
