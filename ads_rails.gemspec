@@ -7,9 +7,9 @@ require 'ads/rails/version'
 Gem::Specification.new do |s|
   s.name        = 'ads-rails'
   s.version     = Ads::Rails::VERSION
-  s.authors     = ['Mattways']
-  s.email       = ['contact@mattways.com']
-  s.homepage    = 'https://github.com/mattways/ads-rails'
+  s.authors     = ['Museways']
+  s.email       = ['hello@museways.com']
+  s.homepage    = 'https://github.com/museways/ads-rails'
   s.summary     = 'Google Adsense for Rails.'
   s.description = 'Adds a simple view helper to create the google adsense include tag.'
   s.license     = 'MIT'

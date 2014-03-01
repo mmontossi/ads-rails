@@ -1,7 +1,7 @@
 module Ads
   module Rails
 
-    VERSION = '0.0.6'
+    VERSION = '0.0.8'
 
   end
 end
