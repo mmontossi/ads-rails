@@ -1,8 +1,8 @@
 PATH
   remote: .
   specs:
-    ads-rails (0.0.9)
-      rails (~> 4.1, >= 3.1.0)
+    ads-rails (0.1.0)
+      rails (>= 3.1.0, < 4.2.0)
 
 GEM
   remote: https://rubygems.org/
