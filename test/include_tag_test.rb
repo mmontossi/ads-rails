@@ -18,7 +18,7 @@ class IncludeTagTest < ActionView::TestCase
   end
   
   test "show renderer output if env is not production and there is a renderer" do
-    ::Rails.application.config.ads.renderer = -> (options) {
+    ::Rails.application.config.ads.renderer = lambda { |options|
       tag(
         :img,
         src: "http://placehold.it/#{options[:width]}x#{options[:height]}&text=Adsense"
