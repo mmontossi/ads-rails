@@ -33,8 +33,6 @@ To change the output when the environment is not production, add a custom render
 
 This gem is maintained and funded by museways[http://museways.com].
 
-{<img src="http://museways.com/logo.png" />}[http://museways.com]
-
 = License
 
 It is free software, and may be redistributed under the terms specified in the MIT-LICENSE file.
