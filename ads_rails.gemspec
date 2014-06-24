@@ -10,8 +10,8 @@ Gem::Specification.new do |s|
   s.authors     = ['Museways']
   s.email       = ['hello@museways.com']
   s.homepage    = 'https://github.com/museways/ads-rails'
-  s.summary     = 'Google Adsense for Rails.'
-  s.description = 'Adds a simple view helper to create the google adsense include tag.'
+  s.summary     = 'Google adsense for rails.'
+  s.description = 'Adds a simple view helper to create the google adsense include tag in rails.'
   s.license     = 'MIT'
 
   s.files = Dir['{app,config,db,lib}/**/*', 'MIT-LICENSE', 'Rakefile', 'README.rdoc']

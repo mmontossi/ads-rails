@@ -1,12 +1,8 @@
-=== WARNING: From version 0.0.8 and above we changed the behavior of the renderer to only being use when the environment is not production.
-
----
-
-{<img src="https://badge.fury.io/rb/ads-rails.png" alt="Gem Version" />}[http://badge.fury.io/rb/ads-rails] {<img src="https://codeclimate.com/github/museways/ads-rails.png" />}[https://codeclimate.com/github/museways/ads-rails] {<img src="https://travis-ci.org/museways/ads-rails.png?branch=master" alt="Build Status" />}[https://travis-ci.org/museways/ads-rails] {<img src="https://gemnasium.com/museways/ads-rails.png" alt="Dependency Status" />}[https://gemnasium.com/museways/ads-rails]
+{<img src="https://badge.fury.io/rb/ads-rails.png" alt="Gem Version" />}[http://badge.fury.io/rb/ads-rails] {<img src="https://codeclimate.com/github/museways/ads-rails.png" />}[https://codeclimate.com/github/museways/ads-rails] {<img src="https://travis-ci.org/museways/ads-rails.png?branch=master" alt="Build Status" />}[https://travis-ci.org/museways/ads-rails]
 
 = Ads Rails
 
-Adds a simple helper to create the google adsense include tag.
+Adds a simple helper to create the google adsense include tag in rails.
 
 = Install
 
@@ -18,12 +14,27 @@ Then bundle:
 
 = Usage
   
-In your view add a line like this wherever you like:
+In your views call the helper like this:
   <%= google_adsense_include_tag client: 'client', slot: 'slot', width: 'width', height: 'height' %>
 
-(Will only show the include tag in production)
+If the current environment is not production, will only show just a color rectangle.
 
 = Configuration
 
-If you don't like the default color div in development, you can use a custom renderer:
-  config.ads.renderer = lamda { |options| tag(:img, src: "http://placehold.it/#{options[:width]}x#{options[:height]}&text=Google+AdSense") }
+To change the output when the environment is not production, add a custom renderer in your application.rb:
+  config.ads.renderer = -> { |options|
+    tag(
+      :img, 
+      src: "http://placehold.it/#{options[:width]}x#{options[:height]}&text=AdSense"
+    )
+  }
+
+= Credits
+
+{<img src="http://museways.com/logo.png" />}[http://museways.com]
+
+This gem is maintained and funded by museways[http://museways.com].
+
+= License
+
+It is free software, and may be redistributed under the terms specified in the MIT-LICENSE file.
