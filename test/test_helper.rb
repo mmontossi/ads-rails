@@ -19,3 +19,6 @@ config = YAML::load(File.read(File.expand_path('../dummy/config/database.yml', _
 config['test']['adapter'] = 'jdbcsqlite3' if RUBY_PLATFORM == 'java'
 ActiveRecord::Base.establish_connection(config['test'])
 load(File.expand_path('../dummy/db/schema.rb', __FILE__))
+
+# Include helpers
+ActionView::TestCase.send :include, Ads::Rails::ActionView::Base

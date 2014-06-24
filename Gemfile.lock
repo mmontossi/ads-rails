@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    ads-rails (0.1.0)
+    ads-rails (0.1.1)
       rails (>= 3.1.0, < 4.2.0)
 
 GEM
@@ -43,7 +43,7 @@ GEM
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
     mime-types (1.25.1)
-    minitest (5.3.4)
+    minitest (5.3.5)
     multi_json (1.10.1)
     polyglot (0.3.5)
     rack (1.5.2)

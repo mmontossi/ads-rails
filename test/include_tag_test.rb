@@ -1,45 +1,44 @@
 require 'test_helper'
 
-class IncludeTagTest < ActionDispatch::IntegrationTest
+class IncludeTagTest < ActionView::TestCase
 
-  test "should show adsense code if env is production and there is no renderer" do
-    assert ::Rails.application.config.ads.renderer.nil?
+  setup do
+    self.request = OpenStruct.new(protocol: 'http://')
+  end
+
+  test "show adsense code if env is production and there is no renderer" do
+    ::Rails.application.config.ads.renderer = nil
     with_env 'production' do
-      get '/'
-      assert_response :success
-      assert response.body.include?("<script type=\"text/javascript\">google_ad_client = 'client';\ngoogle_ad_slot = 'slot';\ngoogle_ad_width = 728;\ngoogle_ad_height = 90;\n</script>")
-      assert response.body.include?('<script src="http://pagead2.googlesyndication.com/pagead/show_ads.js" type="text/javascript">')
-    end
-    with_env 'production' do
-      https!
-      get '/'
-      assert_response :success
-      assert response.body.include?("<script type=\"text/javascript\">google_ad_client = 'client';\ngoogle_ad_slot = 'slot';\ngoogle_ad_width = 728;\ngoogle_ad_height = 90;\n</script>")
-      assert response.body.include?('<script src="https://pagead2.googlesyndication.com/pagead/show_ads.js" type="text/javascript">')
+      assert_equal(
+        %Q(<script type="text/javascript">google_ad_client = 'pub-1234';\ngoogle_ad_width = 728;\n</script>) +
+        %Q(<script src="http://pagead2.googlesyndication.com/pagead/show_ads.js" type="text/javascript"></script>),
+        google_adsense_include_tag(client: 'pub-1234', width: 728)
+      )
     end
   end
   
-  test "should show renderer output if env is not production and there is a renderer" do
+  test "show renderer output if env is not production and there is a renderer" do
+    ::Rails.application.config.ads.renderer = -> (options) {
+      tag(
+        :img,
+        src: "http://placehold.it/#{options[:width]}x#{options[:height]}&text=Adsense"
+      )
+    }
     with_env 'development' do
-      ::Rails.application.config.ads.renderer = lambda { |options| content_tag :script, "client = '#{options[:client]}';\nslot = '#{options[:slot]}';\nwidth = #{options[:width]};\nheight = #{options[:height]};".html_safe }
-      get '/'
-      assert_response :success
-      assert response.body.include?("<script>client = 'client';\nslot = 'slot';\nwidth = 728;\nheight = 90;</script>")
-    end
-    with_env 'development' do
-      ::Rails.application.config.ads.renderer = proc { |options| content_tag :script, "<script>client = '#{options[:client]}';\nslot = '#{options[:slot]}';\nwidth = #{options[:width]};\nheight = #{options[:height]};".html_safe }
-      get '/'
-      assert_response :success
-      assert response.body.include?("<script>client = 'client';\nslot = 'slot';\nwidth = 728;\nheight = 90;</script>")
+      assert_equal(
+        '<img src="http://placehold.it/728x90&amp;text=Adsense" />',
+        google_adsense_include_tag(width: 728, height:90)
+      )
     end
   end
 
-  test "should show gray div if env is not production and there is no renderer" do
-    assert ::Rails.application.config.ads.renderer.nil?
+  test "show gray div if env is not production and there is no renderer" do
+    ::Rails.application.config.ads.renderer = nil
     with_env 'development' do
-      get '/'
-      assert_response :success
-      assert response.body.include?('<div style="width:728px;height:90px;background:#c8c8c8;"></div>')
+      assert_equal(
+        '<div style="width:728px;height:90px;background:#c8c8c8;"></div>',
+        google_adsense_include_tag(width: 728, height:90)
+      )
     end
   end
 
