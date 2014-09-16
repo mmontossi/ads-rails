@@ -43,7 +43,7 @@ config.ads.renderer = lambda { |options|
     src: "http://placehold.it/#{options[:width]}x#{options[:height]}&text=Adsense"
   )
 }
-```ruby
+```
 
 ## Credits
 
