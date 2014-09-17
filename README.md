@@ -12,14 +12,16 @@ gem 'ads-rails'
 ```
 
 Then bundle:
-
-    $ bundle
+```
+$ bundle
+```
 
 ## Configuration
 
 Generate the configuration file:
-
-    rails g ads:install
+```
+rails g ads:install
+```
 
 The defaults values are:
 ```ruby
@@ -31,7 +33,7 @@ end
 ## Usage
 
 In your views call the helper like this:
-```ruby
+```erb
 <%= google_adsense_include_tag client: 'pub-1234', slot: '1234', ... %>
 ```
 
