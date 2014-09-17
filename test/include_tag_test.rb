@@ -7,7 +7,7 @@ class IncludeTagTest < ActionView::TestCase
   end
 
   test 'show adsense code if env is production and there is no renderer' do
-    ::Rails.application.config.ads.renderer = nil
+    Ads.config.renderer = nil
     with_env 'production' do
       assert_equal(
         %Q(<script type="text/javascript">google_ad_client = 'pub-1234';\ngoogle_ad_width = 728;\n</script>) +
@@ -18,7 +18,7 @@ class IncludeTagTest < ActionView::TestCase
   end
 
   test 'show renderer output if env is not production and there is a renderer' do
-    ::Rails.application.config.ads.renderer = lambda { |options|
+    Ads.config.renderer = lambda { |options|
       tag(
         :img,
         src: "http://placehold.it/#{options[:width]}x#{options[:height]}&text=Adsense"
@@ -33,7 +33,7 @@ class IncludeTagTest < ActionView::TestCase
   end
 
   test 'show gray div if env is not production and there is no renderer' do
-    ::Rails.application.config.ads.renderer = nil
+    Ads.config.renderer = nil
     with_env 'development' do
       assert_equal(
         '<div style="width:728px;height:90px;background:#c8c8c8;"></div>',

@@ -15,6 +15,20 @@ Then bundle:
 
     $ bundle
 
+## Configuration
+
+Generate the configuration file:
+```ruby
+rails g ads:install
+```
+
+The defaults values are:
+```ruby
+Ads.configure do |config|
+  config.renderer = nil
+end
+```
+
 ## Usage
 
 In your views call the helper like this:
@@ -33,16 +47,18 @@ google_ad_slot = '1234'
 
 NOTE: If environment is not production, will show a gray rectangle.
 
-## Configuration
+## Renderer
 
 To change the output when the environment is not production, add a custom renderer in your application.rb:
 ```ruby
-config.ads.renderer = lambda { |options|
-  tag(
-    :img,
-    src: "http://placehold.it/#{options[:width]}x#{options[:height]}&text=Adsense"
-  )
-}
+Ads.configure do |config|
+  config.renderer = lambda { |options|
+    tag(
+      :img,
+      src: "http://placehold.it/#{options[:width]}x#{options[:height]}&text=Adsense"
+    )
+  }
+end
 ```
 
 ## Credits

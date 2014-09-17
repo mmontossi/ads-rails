@@ -8,7 +8,9 @@ module Ads
           if ::Rails.env.production?
             script = ''.tap do |script|
               options.each do |key, value|
-                value = "'#{value}'" if value.is_a? String
+                if value.is_a? String
+                  value = "'#{value}'"
+                end
                 script << "google_ad_#{key} = #{value};\n"
               end
             end
@@ -23,8 +25,8 @@ module Ads
               type: 'text/javascript',
               src: "#{request.protocol}pagead2.googlesyndication.com/pagead/show_ads.js"
             )
-          elsif ::Rails.application.config.ads.renderer.is_a? Proc
-            instance_exec options, &::Rails.application.config.ads.renderer
+          elsif Ads.config.renderer.is_a? Proc
+            instance_exec options, &Ads.config.renderer
           else
             content_tag(
               :div,
