@@ -49,7 +49,7 @@ NOTE: If environment is not production, will show a gray rectangle.
 
 ## Renderer
 
-To change the output when the environment is not production, add a custom renderer in your application.rb:
+To change the output when the environment is not production, add a custom renderer:
 ```ruby
 Ads.configure do |config|
   config.renderer = lambda { |options|
