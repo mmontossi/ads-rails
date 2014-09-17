@@ -18,9 +18,8 @@ Then bundle:
 ## Configuration
 
 Generate the configuration file:
-```ruby
-rails g ads:install
-```
+
+    rails g ads:install
 
 The defaults values are:
 ```ruby
