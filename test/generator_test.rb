@@ -10,7 +10,7 @@ class GeneratorsTest < ::Rails::Generators::TestCase
     FileUtils.rm_rf self.destination_root
   end
 
-  test 'generate initializer' do
+  test 'initializer generator' do
     run_generator
     assert_file 'config/initializers/ads.rb'
   end

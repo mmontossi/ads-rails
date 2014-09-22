@@ -6,7 +6,7 @@ class IncludeTagTest < ActionView::TestCase
     self.request = OpenStruct.new(protocol: 'http://')
   end
 
-  test 'show adsense code if env is production and there is no renderer' do
+  test 'adsense code' do
     Ads.config.renderer = nil
     with_env 'production' do
       assert_equal(
@@ -17,7 +17,7 @@ class IncludeTagTest < ActionView::TestCase
     end
   end
 
-  test 'show renderer output if env is not production and there is a renderer' do
+  test 'renderer' do
     Ads.config.renderer = lambda { |options|
       tag(
         :img,
@@ -32,7 +32,7 @@ class IncludeTagTest < ActionView::TestCase
     end
   end
 
-  test 'show gray div if env is not production and there is no renderer' do
+  test 'gray div' do
     Ads.config.renderer = nil
     with_env 'development' do
       assert_equal(
