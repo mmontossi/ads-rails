@@ -1,4 +1,4 @@
-[![Gem Version](https://badge.fury.io/rb/ads-rails.svg)](http://badge.fury.io/rb/ads-rails) [![Code Climate](https://codeclimate.com/github/museways/ads-rails/badges/gpa.svg)](https://codeclimate.com/github/museways/ads-rails) [![Build Status](https://travis-ci.org/museways/ads-rails.svg?branch=0.1.1)](https://travis-ci.org/museways/ads-rails)
+[![Gem Version](https://badge.fury.io/rb/ads-rails.svg)](http://badge.fury.io/rb/ads-rails) [![Code Climate](https://codeclimate.com/github/museways/ads-rails/badges/gpa.svg)](https://codeclimate.com/github/museways/ads-rails) [![Build Status](https://travis-ci.org/museways/ads-rails.svg?branch=0.1.1)](https://travis-ci.org/museways/ads-rails) [![Dependency Status](https://gemnasium.com/museways/ads-rails.svg)](https://gemnasium.com/museways/ads-rails)
 
 # Ads Rails
 
