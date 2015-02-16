@@ -9,11 +9,8 @@ class IncludeTagTest < ActionView::TestCase
   test 'adsense code' do
     Ads.config.renderer = nil
     with_env 'production' do
-      assert_equal(
-        %Q(<script type="text/javascript">google_ad_client = 'pub-1234';\ngoogle_ad_width = 728;\n</script>) +
-        %Q(<script src="http://pagead2.googlesyndication.com/pagead/show_ads.js" type="text/javascript"></script>),
-        google_adsense_include_tag(client: 'pub-1234', width: 728)
-      )
+      tag = google_adsense_include_tag(client: 'pub-1234', width: 728)
+      assert tag.include?("google_ad_client = 'pub-1234';\ngoogle_ad_width = 728;\n")
     end
   end
 
@@ -25,20 +22,16 @@ class IncludeTagTest < ActionView::TestCase
       )
     }
     with_env 'development' do
-      assert_equal(
-        '<img src="http://placehold.it/728x90&amp;text=Adsense" />',
-        google_adsense_include_tag(width: 728, height:90)
-      )
+      tag = google_adsense_include_tag(width: 728, height:90)
+      assert tag.include?('src="http://placehold.it/728x90&amp;text=Adsense"')
     end
   end
 
   test 'gray div' do
     Ads.config.renderer = nil
     with_env 'development' do
-      assert_equal(
-        '<div style="width:728px;height:90px;background:#c8c8c8;"></div>',
-        google_adsense_include_tag(width: 728, height:90)
-      )
+      tag = google_adsense_include_tag(width: 728, height:90)
+      assert tag.include?('style="width:728px;height:90px;background:#c8c8c8;"')
     end
   end
 
