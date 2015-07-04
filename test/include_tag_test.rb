@@ -10,7 +10,7 @@ class IncludeTagTest < ActionView::TestCase
     Ads.config.renderer = nil
     with_env 'production' do
       tag = google_adsense_include_tag(client: 'pub-1234', width: 728)
-      assert tag.include?("google_ad_client = 'pub-1234';\ngoogle_ad_width = 728;\n")
+      assert tag.include?("google_ad_client = 'pub-1234';\ngoogle_ad_width = 728;")
     end
   end
 
