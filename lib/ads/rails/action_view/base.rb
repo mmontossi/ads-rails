@@ -6,12 +6,11 @@ module Ads
         def google_adsense_include_tag(*args)
           options = args.extract_options!
           if ::Rails.env.production?
-            variables = []
-            options.each do |key, value|
+            variables = options.map do |key, value|
               if value.is_a? String
                 value = "'#{value}'"
               end
-              variables << "google_ad_#{key} = #{value};"
+              "google_ad_#{key} = #{value};"
             end
             content_tag(
               :script,
