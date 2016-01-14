@@ -1,4 +1,7 @@
-[![Gem Version](https://badge.fury.io/rb/ads-rails.svg)](http://badge.fury.io/rb/ads-rails) [![Code Climate](https://codeclimate.com/github/museways/ads-rails/badges/gpa.svg)](https://codeclimate.com/github/museways/ads-rails) [![Build Status](https://travis-ci.org/museways/ads-rails.svg?branch=0.1.1)](https://travis-ci.org/museways/ads-rails) [![Dependency Status](https://gemnasium.com/museways/ads-rails.svg)](https://gemnasium.com/museways/ads-rails)
+[![Gem Version](https://badge.fury.io/rb/ads-rails.svg)](http://badge.fury.io/rb/ads-rails)
+[![Code Climate](https://codeclimate.com/github/mmontossi/ads-rails/badges/gpa.svg)](https://codeclimate.com/github/mmontossi/ads-rails)
+[![Build Status](https://travis-ci.org/mmontossi/ads-rails.svg)](https://travis-ci.org/mmontossi/ads-rails)
+[![Dependency Status](https://gemnasium.com/mmontossi/ads-rails.svg)](https://gemnasium.com/mmontossi/ads-rails)
 
 # Ads Rails
 
@@ -64,7 +67,7 @@ end
 
 ## Credits
 
-This gem is maintained and funded by [museways](http://museways.com).
+This gem is maintained and funded by [mmontossi](https://github.com/mmontossi).
 
 ## License
 
