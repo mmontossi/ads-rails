@@ -2,7 +2,7 @@ require 'rails/generators'
 
 module Ads
   module Generators
-    class InstallGenerator < ::Rails::Generators::Base
+    class InstallGenerator < Rails::Generators::Base
 
       source_root File.expand_path('../templates', __FILE__)
 
