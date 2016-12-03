@@ -1,18 +1,15 @@
+require 'ads/configuration'
 require 'ads/rails'
 
 module Ads
   class << self
 
     def configure
-      yield config
+      yield configuration
     end
 
-    def config
-      @config ||= begin
-        ActiveSupport::OrderedOptions.new.tap do |config|
-          config.renderer = nil
-        end
-      end
+    def configuration
+      @configuration ||= Configuration.new
     end
 
   end

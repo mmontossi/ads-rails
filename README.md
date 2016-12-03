@@ -23,7 +23,7 @@ $ bundle
 
 Generate the configuration file:
 ```
-rails g ads:install
+$ bundle exec rails g ads:install
 ```
 
 The defaults values are:

@@ -3,14 +3,14 @@ require 'rails/generators'
 require 'generators/ads/install_generator'
 
 class GeneratorsTest < ::Rails::Generators::TestCase
-  tests Ads::InstallGenerator
-  destination File.expand_path('../tmp', File.dirname(__FILE__))
+  destination Rails.root.join('tmp')
 
   teardown do
-    FileUtils.rm_rf self.destination_root
+    FileUtils.rm_rf destination_root
   end
 
-  test 'initializer generator' do
+  test 'install' do
+    self.class.tests Ads::Generators::InstallGenerator
     run_generator
     assert_file 'config/initializers/ads.rb'
   end

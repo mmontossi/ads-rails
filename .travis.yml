@@ -1,19 +1,20 @@
 language: ruby
 sudo: false
-install:
-  - bundle update
+before_install:
+  - rm Gemfile.lock
+  - mv Gemfile.travis Gemfile
+script:
+  - bundle exec rake test
 env:
-  - RAILS_VERSION=4.0.0
-  - RAILS_VERSION=4.1.0
-  - RAILS_VERSION=4.2.0
+  - RAILS=4.2.0
 rvm:
-  - 2.0.0
   - 2.1.0
   - 2.2.0
-  - rbx
-  - jruby
+  - 2.3.0
+  - jruby-9.0.0.0
+  - jruby-9.1.0.0
 matrix:
   fast_finish: true
   allow_failures:
-    - rvm: rbx
-    - rvm: jruby
+    - rvm: jruby-9.0.0.0
+    - rvm: jruby-9.1.0.0
