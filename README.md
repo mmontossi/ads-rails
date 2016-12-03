@@ -60,7 +60,7 @@ google_ad_slot = 1234
 .
 ```
 
-NOTE: If environment is not production, the sample tag will be used instead.
+NOTE: If environment is not production, the sample tag will be use instead.
 
 ## Credits
 
