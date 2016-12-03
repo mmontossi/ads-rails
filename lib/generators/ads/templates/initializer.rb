@@ -4,7 +4,7 @@ Ads.configure do |config|
     styles = {
       width: "#{options[:width]}px",
       heigth: "#{options[:height]}px",
-      background: 'background: #c8c8c8;'
+      background: '#c8c8c8'
     }
     content_tag(
       :div,

@@ -5,7 +5,13 @@
 
 # Ads Rails
 
-Adds a simple helper to create the google adsense include tag in rails.
+Helper to create the google adsense include tag in rails.
+
+## Why
+
+I did this gem to:
+
+- Have a simple but versatile way to include google adsense.
 
 ## Install
 
@@ -26,10 +32,23 @@ Generate the configuration file:
 $ bundle exec rails g ads:install
 ```
 
-The defaults values are:
+Customize the sample tag if you want:
 ```ruby
 Ads.configure do |config|
-  config.renderer = nil
+
+  config.sample_tag do |options|
+    styles = {
+      width: "#{options[:width]}px",
+      heigth: "#{options[:height]}px",
+      background: '#c8c8c8'
+    }
+    content_tag(
+      :div,
+      nil,
+      style: styles.map{ |k,v| "#{k}: #{v};" }.join(' ')
+    )
+  end
+
 end
 ```
 
@@ -49,21 +68,7 @@ google_ad_slot = '1234'
 .
 ```
 
-NOTE: If environment is not production, will show a gray rectangle.
-
-## Renderer
-
-To change the output when the environment is not production, add a custom renderer:
-```ruby
-Ads.configure do |config|
-  config.renderer = lambda { |options|
-    tag(
-      :img,
-      src: "http://placehold.it/#{options[:width]}x#{options[:height]}&text=Adsense"
-    )
-  }
-end
-```
+NOTE: If environment is not production, the sample tag will be shown.
 
 ## Credits
 
