@@ -54,13 +54,13 @@ In your views call the helper like this:
 All the arguments will be mapped to the the corresponding google_ad variable:
 ```ruby
 google_ad_client = 'pub-1234'
-google_ad_slot = '1234'
+google_ad_slot = 1234
 .
 .
 .
 ```
 
-NOTE: If environment is not production, the sample tag will be shown.
+NOTE: If environment is not production, the sample tag will be used instead.
 
 ## Credits
 
