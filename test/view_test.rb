@@ -3,7 +3,7 @@ require 'test_helper'
 class ViewTest < ActionView::TestCase
 
   test 'tag' do
-    self.request = ActionController::TestRequest.new
+    self.request = ActionDispatch::TestRequest.new
 
     with_env 'production' do
       tag = google_adsense_include_tag(client: 'pub-1234', width: 728)
