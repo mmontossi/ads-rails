@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    ads-rails (0.3.0)
+    ads-rails (4.0.0.0)
       rails (>= 4.2.0, < 4.3.0)
 
 GEM
