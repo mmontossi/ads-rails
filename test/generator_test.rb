@@ -2,7 +2,7 @@ require 'test_helper'
 require 'rails/generators'
 require 'generators/ads/install/install_generator'
 
-class GeneratorsTest < ::Rails::Generators::TestCase
+class GeneratorsTest < Rails::Generators::TestCase
   destination Rails.root.join('tmp')
 
   teardown do
