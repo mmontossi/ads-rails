@@ -1,0 +1,10 @@
+default: &default
+  adapter: postgresql
+
+development:
+  <<: *default
+  database: ads_rails_development
+
+test:
+  <<: *default
+  database: ads_rails_test

@@ -1,3 +1,4 @@
+.DS_Store
 .byebug_history
 .ruby-version
 .bundle/
@@ -6,4 +7,3 @@ pkg/
 test/dummy/db/schema.rb
 test/dummy/log/*.log
 test/dummy/tmp/
-test/dummy/.sass-cache

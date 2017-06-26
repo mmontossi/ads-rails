@@ -1,0 +1,6 @@
+<% if can?(:touch, @product) %>
+  <a href="#">Touch</a>
+<% end %>
+<% if cannot?(:destroy, @product) %>
+  <a href="#">Destroy</a>
+<% end %>
