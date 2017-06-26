@@ -3,8 +3,8 @@ default: &default
 
 development:
   <<: *default
-  database: ads_rails_development
+  database: ads_development
 
 test:
   <<: *default
-  database: ads_rails_test
+  database: ads_test
