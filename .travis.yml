@@ -1,6 +1,5 @@
 language: ruby
 sudo: false
-dist: trusty
 before_install:
   - rm Gemfile.lock
   - mv Gemfile.travis Gemfile
@@ -15,5 +14,5 @@ rvm:
   - 2.4.0
 matrix:
   fast_finish: true
-addons:
-  postgresql: 9.6
+services:
+  - postgresql
